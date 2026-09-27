@@ -1,4 +1,4 @@
-gitimport base64
+import base64
 import os
 from typing import Any
 from pathlib import Path
@@ -7,8 +7,10 @@ from hashlib import sha256
 from fastapi import FastAPI
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
+from products import router as products_router
 
 app = FastAPI()
+app.include_router(products_router)
 STATIC_DIR = Path(__file__).parent / "static"
 
 
